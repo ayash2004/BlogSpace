@@ -10,7 +10,7 @@ export class AuthService{
             .setEndpoint(conf.appwriteUrl)
             .setProject(conf.appwriteProjectId);
             this.account = new Account (this.client)
-            console.log("✅ Appwrite client configured with:", conf.appwriteUrl, conf.appwriteProjectId);
+            // console.log("✅ Appwrite client configured with:", conf.appwriteUrl, conf.appwriteProjectId);
     }
     
     async createAccount({email,password,name}){
@@ -57,4 +57,4 @@ const authService = new AuthService();
 
 export default authService
 
-console.log("Appwrite Config:", conf);
+// console.log("Appwrite Config:", conf);

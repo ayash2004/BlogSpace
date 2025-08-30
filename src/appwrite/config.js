@@ -146,11 +146,11 @@ export class Service{
         }
     }
 }
-console.log("Appwrite config:", conf);
+// console.log("Appwrite config:", conf);
 
 
 const service= new Service()
 
 export default service
 
-console.log("Appwrite Config:", conf);
+// console.log("Appwrite Config:", conf);
