@@ -127,9 +127,9 @@ function AllPosts() {
                     </div>
 
                     {/* Filter and Action Bar */}
-                    <div className="flex flex-col sm:flex-row justify-between items-center">
+                    <div className= "flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center px-4">
                         {/* Filter Buttons */}
-                        <div className="flex gap-4 mx-10">
+                        <div className="flex flex-wrap gap-3 justify-center sm:justify-start">
                             <Button
                                 onClick={() => handleFilterChange('all')}
                                 className={` px-4 py-2 rounded-lg transition-colors ${
@@ -226,14 +226,14 @@ function AllPosts() {
 
                         {/* Posts Summary */}
                         <div className="mt-8 text-center">
-                            <p className="text-gray-500">
+                            <p className="text-gray-500 text-sm sm:text-base">
                                 Showing {posts.length} {filter === 'all' ? '' : filter} post{posts.length !== 1 ? 's' : ''}
                             </p>
                             {posts.length > 0 && (
                                 <div className="mt-4 flex justify-center gap-4 text-sm text-gray-400">
-                                    <span>Total Active: {posts.filter(p => p.status === 'active').length}</span>
+                                    <span>Total Active: {posts.filter(p => p.status?.toLowerCase() === 'active').length}</span>
                                     <span>•</span>
-                                    <span>Total Inactive: {posts.filter(p => p.status === 'inactive').length}</span>
+                                    <span>Total Inactive: {posts.filter(p => p.status?.toLowerCase() === 'inactive').length}</span>
                                 </div>
                             )}
                         </div>

@@ -6,7 +6,5 @@ const conf = {
     appwriteBucketId: String(import.meta.env.VITE_APPWRITE_BUCKET_ID),
 }
 
-console.log("Appwrite Config:", conf);
-
 export default conf
 

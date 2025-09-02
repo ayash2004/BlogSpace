@@ -78,8 +78,8 @@ export default function PostForm({ post }) {
     }, [watch, slugTransform, setValue]);
 
     return (
-        <form onSubmit={handleSubmit(submit)} className="flex flex-wrap mx-8">
-            <div className="w-2/3 px-2">
+        <form onSubmit={handleSubmit(submit)} className="flex flex-col lg:flex-row mx-4 sm:mx-6 lg:mx-8 gap-6">
+            <div className="w-full lg:w-2/3 px-0 lg:px-2">
                 <Input
                     label="Title :"
                     placeholder="Title"
@@ -95,13 +95,15 @@ export default function PostForm({ post }) {
                         setValue("slug", slugTransform(e.currentTarget.value), { shouldValidate: true });
                     }}
                 />
-                <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
+                <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} className= " w-full min-h-[200px] sm:min-h-[300px] md:min-h-[400px] rounded-lg "/>
             </div>
-            <div className="w-1/3 px-2">
+            <div className="w-full lg:w-1/3 px-0 lg:px-2">
                 <Input
                     label="Featured Image :"
                     type="file"
-                    className="mb-4"
+                    className="mb-4 block w-full text-sm text-gray-300 file:mr-4 file:py-2 file:px-4 
+                    file:rounded-md file:border-0 file:text-sm file:font-semibold 
+                  file:bg-blue-600 file:text-white hover:file:bg-blue-700"
                     accept="image/png, image/jpg, image/jpeg, image/gif"
                     {...register("image", { required: !post })}
                 />
@@ -110,7 +112,7 @@ export default function PostForm({ post }) {
                         <img
                             src={appwriteService.getFileView(post.featuredImage)}
                             alt={post.title}
-                            className="rounded-lg"
+                            className="rounded-lg w-full object-cover"
                         />
                     </div>
                 )}
